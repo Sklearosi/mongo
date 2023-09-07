@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Jobs
+  description: API
+  version: 0.1.9
+
+servers:
+  - url: http://localhost:3000/api
+    description: production server
+  - url: http://localhost:3000/api
+    description: local server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  /job-insert:
+    post:
+      tags:
+        - Jobs
+      requestBody:
+        description: jobs inserting request
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                id:
+                  type: number
+                company:
+                  type: string
+                logo:
+                  type: string
+                logoBackground:
+                  type: string
+                position:
+                  type: string
+                postedAt:
+                  type: string
+                contract:
+                  type: string
+                location:
+                  type: string
+                website:
+                  type: string
+                apply:
+                  type: string
+                description:
+                  type: string
+                requirements:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                    items:
+                      type: array
+                      items:
+                        type: string
+                role:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                    items:
+                      type: array
+                      items:
+                        type: string
+      responses:
+        "201":
+          description: job posted succesfully
+
+
+  /job-get:
+    get:
+      tags:
+        - Jobs
+      responses:
+        "200":
+          description: Retrieve a list of jobs successfully
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    id:
+                      type: number
+                    company:
+                      type: string
+                    logo:
+                      type: string
+                    logoBackground:
+                      type: string
+                    position:
+                      type: string
+                    postedAt:
+                      type: string
+                    contract:
+                      type: string
+                    location:
+                      type: string
+                    website:
+                      type: string
+                    apply:
+                      type: string
+                    description:
+                      type: string
+                    requirements:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                        items:
+                          type: array
+                          items:
+                            type: string
+                    role:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                        items:
+                          type: array
+                          items:
+                            type: string
+        responses:
+          "201":
+            description: we got jobs succesfully
+  
