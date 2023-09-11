@@ -130,4 +130,62 @@ paths:
         responses:
           "201":
             description: we got jobs succesfully
+
+            /all-job:
+    get:
+      tags:
+        - Jobs
+      responses:
+        "200":
+          description: Retrieve a list of jobs successfully..all
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    id:
+                      type: number
+                    company:
+                      type: string
+                    logo:
+                      type: string
+                    logoBackground:
+                      type: string
+                    position:
+                      type: string
+                    postedAt:
+                      type: string
+                    contract:
+                      type: string
+                    location:
+                      type: string
+                    website:
+                      type: string
+                    apply:
+                      type: string
+                    description:
+                      type: string
+                    requirements:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                        items:
+                          type: array
+                          items:
+                            type: string
+                    role:
+                      type: object
+                      properties:
+                        content:
+                          type: string
+                        items:
+                          type: array
+                          items:
+                            type: string
+        responses:
+          "201":
+            description: we got jobs succesfully
   
