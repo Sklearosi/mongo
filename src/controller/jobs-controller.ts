@@ -76,3 +76,15 @@ export const getJobs = async (req: Request, res: Response) => {
       return res.status(500).json({ error: "Internal Server Error" });
     }
   };
+
+  export const getAllJobs = async (req: Request, res: Response) => {
+    try {
+      const jobs = await Job.find(); // Retrieve all jobs from the database
+      
+      return res.status(200).json({
+        jobs
+      });
+    } catch (error) {
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
