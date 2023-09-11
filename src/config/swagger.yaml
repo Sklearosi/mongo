@@ -131,13 +131,14 @@ paths:
           "201":
             description: we got jobs succesfully
 
-            /all-job:
+
+  /all-job:
     get:
       tags:
         - Jobs
       responses:
         "200":
-          description: Retrieve a list of jobs successfully..all
+          description: Retrieve a list of jobs successfully
           content:
             application/json:
               schema:
@@ -188,4 +189,5 @@ paths:
         responses:
           "201":
             description: we got jobs succesfully
-  
+
+    
